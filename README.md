@@ -8,7 +8,7 @@ Laboratorijske vježbe akademske godine 2025./2026. se provode na tri načina:
 Za sve korake dozvoljeno je korištenje MATLAB ili Python okruženja za simboličke izračune.
 
 **2. Python skripta**: Analitički određeni dijelovi vježbe (direktna, inverzna kinematika, itd.) se
-implementiraju u Python skriptu *open manipulator lab/scripts/lv_priprema.py* u klasi *LV2526_priprema*.
+implementiraju u Python skriptu *open_manipulator_lab/scripts/lv_priprema.py* u klasi *LV2526_priprema*.
 Skriptu je moguće izvoditi neovisno o ROS2 okruženju, kroz UBUNTU, Conda ili bilo koji drugi način.
 
 **3. ROS2 okruženje**: Sadrži kompletno ROS2 okruženje te sve popratne skripte za upravljanje robotom.
