@@ -34,7 +34,7 @@ class LV2526_priprema():
     def get_ik(self, w):
         # Implement here inverse kinematics
         # INPUT (1): w 6x1 as a tool configuration vector, w = [x, y, z, wx, wy, wz]
-        # OUTPUT: q 4xN as all inverse solutions
+        # OUTPUT: q_all 4xN as all inverse solutions
 
         # TODO
 
@@ -44,8 +44,8 @@ class LV2526_priprema():
 
     def get_closest_ik(self, q_all, q0):
         # Find closest IK solution to robot pose q0
-        # INPUT (1): all IK solutions, 6xN
-        # INPUT (2): Current joint state configuration
+        # INPUT (1): q_all all IK solutions, 6xN
+        # INPUT (2): q0 current joint state configuration
         # OUTPUT: q 6x1
 
         # TODO:
