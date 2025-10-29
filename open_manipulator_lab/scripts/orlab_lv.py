@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import rclpy
+import numpy as np
 from rclpy.node import Node
 from math import pi, floor
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
@@ -15,6 +16,8 @@ class ORLAB_OpenManipulator(Node):
         super().__init__('ROBLAB_open_manipulator')
 
         self.publisher_ = self.create_publisher(JointTrajectory, '/arm_controller/joint_trajectory', 10)
+        self.joint_min = [-3, -1.5, -1.4, -1.5]
+        self.joint_max = [3, 1.5, 1, 1.5]
 
         print("Initiated")
 
@@ -25,7 +28,7 @@ class ORLAB_OpenManipulator(Node):
         msg = JointTrajectory()
         msg.joint_names = JOINT_NAMES
         point = JointTrajectoryPoint()
-        point.positions = q
+        point.positions = np.clip(q, self.joint_min, self.joint_max)
         
         # Set the time_from_start (how long the robot has to reach this goal)
         seconds = int(t)
@@ -36,7 +39,7 @@ class ORLAB_OpenManipulator(Node):
         
         # Log the command being sent
         self.get_logger().info(f'Prepared trajectory for: {JOINT_NAMES}')
-        self.get_logger().info(f'Target positions: {q}')
+        self.get_logger().info(f'Target positions: {point.positions}')
         self.get_logger().info(f'Execution duration: {t} seconds')
         
         input("Press Enter to execute")
@@ -49,17 +52,19 @@ def main(args=None):
     rclpy.init(args=args)
     node = ORLAB_OpenManipulator()
     kinematics_node = LV2526_priprema()
+
+    q = [0, 0, 0, 0]
     
-    sol_dk = kinematics_node.get_dk([0.0, 0.0, 0.0, 0.0])
+    sol_dk = kinematics_node.get_dk(q)
     print('DK: ', sol_dk)
     
     sol_ik = kinematics_node.get_ik(sol_dk)
     print('IK: ', sol_ik)
 
-    sol_ik_best = kinematics_node.get_closest_ik(sol_ik, [0.0, 0.0, 0.0, 0.0])
+    sol_ik_best = kinematics_node.get_closest_ik(sol_ik, q)
     print('Best: ', sol_ik_best)
 
-    node.moveRobot([0.0, 0.0, 0.0, 0.0], 4.0)
+    node.moveRobot(q, 1.0)
 
 
 if __name__ == '__main__':
