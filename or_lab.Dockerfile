@@ -71,16 +71,16 @@ RUN pip3 install --no-cache-dir -U colcon-common-extensions vcstool --break-syst
 # ---------------------------------------------------------
 # Create a workspace
 # ---------------------------------------------------------
-RUN mkdir -p ~/ros2_ws/src
-#WORKDIR /home/rosuser/ros2_ws
+RUN mkdir -p /root/ros2_ws/src
+#WORKDIR /root/ros2_ws
 
 # ---------------------------------------------------------
 # Download repositories
 # ---------------------------------------------------------
-WORKDIR /home/root/ros2_ws/src
+WORKDIR /root/ros2_ws/src
 RUN git clone https://github.com/larics/or_lab.git
 
-WORKDIR /home/root/ros2_ws
+WORKDIR /root/ros2_ws
 SHELL ["/bin/bash", "-c"]
 RUN source /opt/ros/jazzy/setup.bash && \
     rosdep install --from-paths src --ignore-src -r -y && \
@@ -91,10 +91,10 @@ RUN source /opt/ros/jazzy/setup.bash && \
 # ---------------------------------------------------------
 SHELL ["/bin/bash", "-c"]
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc && \
-    echo "source /home/root/ros2_ws/install/setup.bash" >> ~/.bashrc && \
+    echo "source /root/ros2_ws/install/setup.bash" >> ~/.bashrc && \
     echo "export ROS_DOMAIN_ID=1" >> ~/.bashrc && \
     echo 'alias source_ros2="source /opt/ros/jazzy/setup.bash"' && \
-    echo 'alias source_ros2ws="source ~/ros2_ws/install/setup.bash"'
+    echo 'alias source_ros2ws="source /root/ros2_ws/install/setup.bash"'
 
 # ---------------------------------------------------------
 # Default command

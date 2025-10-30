@@ -1,5 +1,5 @@
 # or_lab
-Repozitorij za laboratorijske vježbe kolegija "Osnove Robotike" (https://www.fer.unizg.hr/predmet/osnrob)
+Repozitorij za laboratorijske vježbe kolegija "Osnove Robotike".(https://www.fer.unizg.hr/predmet/osnrob)
 
 ## Upute
 Laboratorijske vježbe akademske godine 2025./2026. se provode na tri načina:
@@ -8,7 +8,7 @@ Laboratorijske vježbe akademske godine 2025./2026. se provode na tri načina:
 Za sve korake dozvoljeno je korištenje MATLAB ili Python okruženja za simboličke izračune.
 
 **2. Python skripta**: Analitički određeni dijelovi vježbe (direktna, inverzna kinematika, itd.) se
-implementiraju u Python skriptu *open_manipulator_lab/scripts/lv_priprema.py* u klasi *LV2526_priprema*.
+implementiraju u Python skriptu `open_manipulator_lab/scripts/lv_priprema.py` u klasi `LV2526_priprema`.
 Skriptu je moguće izvoditi neovisno o ROS2 okruženju, kroz UBUNTU, Conda ili bilo koji drugi način.
 
 **3. ROS2 okruženje**: Sadrži kompletno ROS2 okruženje te sve popratne skripte za upravljanje robotom.
@@ -29,3 +29,14 @@ Uz svaki izvještaj laboratorijske vježbe, potrebno je predati i navedenu skrip
 Sve predane skripte će se kontrolirati te uspoređivati.
 
 Napominjemo da je priprema svake laboratorijske vježbe samostalni uradak i prepisivanje će se strogo kažnjavati!
+
+## Upute za docker
+Kako biste pokrenuli docker container, trebate pokrenuti sljedeće naredbe u glavnom direktoriju ovog repozitorija:
+```
+docker build -t or_lab -f or_lab.DockerFile  .
+docker run -it or_lab_test
+```
+Ako želite koristiti ovaj container za daljnje razvijanje drugih projekata, ovaj način instalacije ima manu:
+container nema pristup grafičkom sučelju te nećete unutar njega moći otvoriti nove prozore.
+
+Detaljnije upute za docker dostupne su na: https://github.com/larics/docker_files/wiki.
