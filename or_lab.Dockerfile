@@ -61,7 +61,8 @@ RUN apt-get update && apt-get install -y \
     ros-${ROS_DISTRO}-urdfdom-headers \
     ros-${ROS_DISTRO}-urdfdom-py \
     ros-${ROS_DISTRO}-control* \
-    ros-${ROS_DISTRO}-ros2-control* 
+    ros-${ROS_DISTRO}-ros2-control* \
+    ros-${ROS_DISTRO}-moveit
     
 # ---------------------------------------------------------
 # Install colcon and vcstool
