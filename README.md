@@ -34,7 +34,11 @@ Napominjemo da je priprema svake laboratorijske vježbe samostalni uradak i prep
 Kako biste pokrenuli docker container, trebate pokrenuti sljedeće naredbe u glavnom direktoriju ovog repozitorija:
 ```
 docker build -t or_lab -f or_lab.DockerFile  .
-docker run -it or_lab_test
+docker run -it \
+    --rm \
+    --privileged \
+    --device=/dev/ttyACM0:/dev/ttyACM0 \
+    or_lab
 ```
 Ako želite koristiti ovaj container za daljnje razvijanje drugih projekata, ovaj način instalacije ima manu:
 container nema pristup grafičkom sučelju te nećete unutar njega moći otvoriti nove prozore.
