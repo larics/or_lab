@@ -35,9 +35,8 @@ Kako biste pokrenuli docker container, trebate pokrenuti sljedeće naredbe u gla
 ```
 docker build -t or_lab -f or_lab.Dockerfile  .
 docker run -it \
-    --rm \
     --privileged \
-    --device=/dev/ttyACM0:/dev/ttyACM0 \
+    --device=/dev/ttyUSB0:/dev/ttyUSB0 \
     or_lab
 ```
 Ako želite koristiti ovaj container za daljnje razvijanje drugih projekata, ovaj način instalacije ima manu:
