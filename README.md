@@ -33,7 +33,7 @@ Napominjemo da je priprema svake laboratorijske vježbe samostalni uradak i prep
 ## Upute za docker
 Kako biste pokrenuli docker container, trebate pokrenuti sljedeće naredbe u glavnom direktoriju ovog repozitorija:
 ```
-docker build -t or_lab -f or_lab.DockerFile  .
+docker build -t or_lab -f or_lab.Dockerfile  .
 docker run -it \
     --rm \
     --privileged \
