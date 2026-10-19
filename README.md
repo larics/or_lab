@@ -2,7 +2,7 @@
 Repozitorij za laboratorijske vježbe kolegija "Osnove Robotike". (https://www.fer.unizg.hr/predmet/osnrob)
 
 ## Upute
-Laboratorijske vježbe akademske godine 2025./2026. se provode na tri načina:
+Laboratorijske vježbe akademske godine 2026./2027. se provode na tri načina:
 
 **1. Analitički**: Raspisivanje DH metode, određivanje DH parametara, izračun vektora konfiguracije, itd.
 Za sve korake dozvoljeno je korištenje MATLAB ili Python okruženja za simboličke izračune.
