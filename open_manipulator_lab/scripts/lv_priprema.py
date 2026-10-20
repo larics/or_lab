@@ -67,7 +67,7 @@ def main(args=None):
     sol_ik = myORLAB.get_ik(sol_dk)
     print('IK: ', sol_ik)
 
-    sol_ik_best = myORLAB.get_closest(sol_ik, [0.0, 0.0, 0.0, 0.0])
+    sol_ik_best = myORLAB.get_closest_ik(sol_ik, [0.0, 0.0, 0.0, 0.0])
     print('Best: ', sol_ik_best)
 
 if __name__ == '__main__':
