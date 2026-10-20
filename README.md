@@ -36,10 +36,22 @@ Kako biste pokrenuli docker container, trebate pokrenuti sljedeće naredbe u gla
 docker build -t or_lab -f or_lab.Dockerfile  .
 docker run -it \
     --privileged \
-    --device=/dev/ttyUSB0:/dev/ttyUSB0 \
+    -v /dev:/dev \
     or_lab
 ```
 Ako želite koristiti ovaj container za daljnje razvijanje drugih projekata, ovaj način instalacije ima manu:
 container nema pristup grafičkom sučelju te nećete unutar njega moći otvoriti nove prozore.
 
 Detaljnije upute za docker dostupne su na: https://github.com/larics/docker_files/wiki.
+
+## Upute za pokretanje robota
+Kako biste pokrenuli robota, u terminalu unutar containera ili vašeg lokalnog radnog okruženja
+pokrenite skriptu za upravljanje robotom:
+```
+ros2 launch open manipulator bringup open manipulator x.launch.py
+```
+Nakon pokretanja kontrole robota, možete pokrenuti skriptu **orlab lv.py** preko drugog terminala
+ili otvaranjem skripte u editoru i pritiskom ”Play” gumba u gornjem desnom kutu (to će otvoriti
+novi terminal, možete promijeniti prikazani terminal u donjem desnom kutu).
+Nakon pokretanja skripte, pritisnite Enter za izvedbu na robotu.
+Istu skriptu možete modificirati kako biste robotu zadali druge poze.
