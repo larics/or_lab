@@ -46,18 +46,12 @@ class LV2627_priprema():
         # Find closest IK solution to robot pose q0
         # INPUT (1): q_all all IK solutions, 6xN
         # INPUT (2): q0 current joint state configuration
-        # OUTPUT: q 6x1
+        # OUTPUT: q 4x1
 
         # TODO:
 
         # Output
-        q = np.zeros(6)
-        #q[0] = ..
-        #q[1] = ..
-        #q[2] = ..
-        #q[3] = ..
-        #q[4] = ..
-        #q[5] = ..
+        q = np.zeros(4)
         return q
     
     def wrap2PI(self, x):
